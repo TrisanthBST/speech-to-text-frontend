@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useState } from 'react';
 import { Lock, Eye, EyeOff, CheckCircle, AlertCircle, ArrowLeft } from 'lucide-react';
 import { changePassword } from '../utils/auth';
 
