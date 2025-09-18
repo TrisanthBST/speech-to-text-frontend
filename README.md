@@ -186,15 +186,37 @@ npm run preview
 
 ### Deployment Options
 
-#### Netlify
+#### Vercel (Recommended for Full-Stack)
+1. **Deploy Backend First**:
+   - Deploy your backend repository to Vercel
+   - Configure environment variables in Vercel dashboard
+   - Get your backend URL: `https://your-backend-app.vercel.app`
+
+2. **Deploy Frontend**:
+   - Connect your frontend GitHub repository to Vercel
+   - Vercel will automatically detect Vite configuration
+   - Set environment variables in Vercel dashboard:
+   ```
+   VITE_API_URL=https://your-backend-app.vercel.app/api
+   ```
+   - Deploy automatically on every push to main branch
+
+3. **Single-Domain Option**:
+   - For single domain deployment, deploy as a monorepo
+   - Frontend serves as static files, backend as API routes
+   - All under one Vercel domain: `https://your-app.vercel.app`
+
+#### Alternative: Netlify
 1. Build the project: `npm run build`
 2. Deploy the `dist/` folder to Netlify
-3. Set environment variables in Netlify dashboard
-
-#### Vercel
-1. Connect your GitHub repository
-2. Vercel will automatically detect Vite configuration
-3. Set environment variables in Vercel dashboard
+3. Set environment variables in Netlify dashboard:
+   ```
+   VITE_API_URL=https://your-backend-app.vercel.app/api
+   ```
+4. Configure redirects for SPA: Create `_redirects` file in `public/` with:
+   ```
+   /*    /index.html   200
+   ```
 
 #### Traditional Hosting
 1. Build the project: `npm run build`
